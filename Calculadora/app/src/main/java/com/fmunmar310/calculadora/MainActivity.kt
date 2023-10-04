@@ -11,15 +11,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val textView = findViewById<TextView>(R.id.textView)
-        var result = ""
-        var operacion=""
-        var calculo = Calculo()
+        var result = " "
+        var operador=""
         var num1 = 0.0
         var num2 = 0.0
+        var calculo = Calculo(num1,num2,operador)
         val button1 = findViewById<Button>(R.id.num1)
         button1.setOnClickListener(View.OnClickListener {
             result+="1"
-            textView.text = result })
+            textView.text = result})
         val button2 = findViewById<Button>(R.id.num2)
         button2.setOnClickListener(View.OnClickListener {
             result+="2"
@@ -56,33 +56,109 @@ class MainActivity : AppCompatActivity() {
         button0.setOnClickListener(View.OnClickListener {
             result+="0"
             textView.text = result})
+        val buttonDot = findViewById<Button>(R.id.dot)
+        buttonDot.setOnClickListener(View.OnClickListener {
+            result+="."
+            textView.text = result})
         val buttonPlus = findViewById<Button>(R.id.plus)
         buttonPlus.setOnClickListener(View.OnClickListener {
-            num1=result.toDouble()
-            operacion="+"
-            calculo.num1=num1
-            calculo.num2=num2
-            calculo.op=operacion
-            result = calculo.operacion(calculo).toString()
-            textView.text = result
-            result =""
+            operador = "+"
+            if (num1 == 0.0) {
+                num1 = result.toDouble()
+                textView.text = result
+                result=" "
+            }else if(result == "0"){
+                result = result.substring(1)
+            }
+            else{
+                num2 = result.toDouble()
+                textView.text = result
+                calculo = Calculo(num1,num2,operador)
+                result=calculo.operacion(operador).toString()
+                textView.text = result
+                num1 = result.toDouble()
+                num2 = 0.0
+                result=""
+            }
            })
         val buttonMinus = findViewById<Button>(R.id.minus)
+        buttonMinus.setOnClickListener(View.OnClickListener {
+            operador = "-"
+            if (num1 == 0.0) {
+                num1=result.toDouble()
+                textView.text = result
+                result=" "
+            }else if(result == "0"){
+                result = result.substring(1)
+            }
+            else{
+                num2 = result.toDouble()
+                textView.text = result
+                calculo = Calculo(num1,num2,operador)
+                result=calculo.operacion(operador).toString()
+                textView.text = result
+                num1 = result.toDouble()
+                num2 = 0.0
+                result=" "
+            }
+        })
         val buttonMult = findViewById<Button>(R.id.multiply)
+        buttonMult.setOnClickListener(View.OnClickListener {
+            operador = "*"
+            if (num1 == 0.0) {
+                num1=result.toDouble()
+                textView.text = result
+                result=" "
+            }else if(result == "0"){
+                result = result.substring(1)
+            }
+            else{
+                num2 = result.toDouble()
+                textView.text = result
+                calculo = Calculo(num1,num2,operador)
+                result=calculo.operacion(operador).toString()
+                textView.text = result
+                num1 = result.toDouble()
+                num2 = 0.0
+                result=""
+            }
+        })
         val buttonDiv = findViewById<Button>(R.id.divide)
+        buttonDiv.setOnClickListener(View.OnClickListener {
+            operador = "/"
+            if (num1 == 0.0) {
+                num1=result.toDouble()
+                textView.text = result
+                result=" "
+            }else if(result == "0"){
+                result = result.substring(1)
+            }
+            else{
+                num2 = result.toDouble()
+                textView.text = result
+                calculo = Calculo(num1,num2,operador)
+                result=calculo.operacion(operador).toString()
+                textView.text = result
+                num1 = result.toDouble()
+                num2 = 0.0
+                result=""
+            }
+        })
         val buttonCe = findViewById<Button>(R.id.ce)
-        val buttonDot = findViewById<Button>(R.id.dot)
+        buttonCe.setOnClickListener(View.OnClickListener {
+            result = result.substring(0,result.length-1)
+            textView.text = result
+        })
         val buttonEqual = findViewById<Button>(R.id.equal)
         buttonEqual.setOnClickListener(View.OnClickListener {
             num2=result.toDouble()
-            operacion="+"
-            calculo.num1=num1
-            calculo.num2=num2
-            calculo.op=operacion
-            result = calculo.operacion(calculo).toString()
             textView.text = result
-            result =""
+            calculo = Calculo(num1,num2,operador)
+            result = calculo.operacion(operador).toString()
+            textView.text = result
+            num1 = result.toDouble()
+            num2 = 0.0
+            result="0"
         })
-
     }
 }
