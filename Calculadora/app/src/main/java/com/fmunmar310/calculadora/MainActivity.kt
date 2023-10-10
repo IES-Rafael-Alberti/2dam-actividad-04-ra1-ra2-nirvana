@@ -146,7 +146,9 @@ class MainActivity : AppCompatActivity() {
         })
         val buttonCe = findViewById<Button>(R.id.ce)
         buttonCe.setOnClickListener(View.OnClickListener {
-            result = result.substring(0,result.length-1)
+            result = ""
+            num1 = 0.0
+            num2 = 0.0
             textView.text = result
         })
         val buttonEqual = findViewById<Button>(R.id.equal)
