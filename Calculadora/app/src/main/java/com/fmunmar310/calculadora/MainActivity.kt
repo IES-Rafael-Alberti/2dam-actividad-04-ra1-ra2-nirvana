@@ -110,7 +110,10 @@ class MainActivity : AppCompatActivity() {
             result+="."
             textView.text = result})
         /**
-         * botón para añadir suma como operación
+         * botón para añadir suma como operación, si operador ya tiene un valor asignado realizará primero la operación designada
+         * y luego cambiará el valor de la variable operador. Si no hay un operador asignado primero se comprueba si ya hay num1 añadido,
+         * en caso negativo añade num1, en caso positivo realiza la operación y traslada el valor de la misma a num1.
+         * Al final de cada operación reseteamos el valor de num2 y de operador.
          */
         val buttonPlus = findViewById<Button>(R.id.plus)
         buttonPlus.setOnClickListener(View.OnClickListener {
@@ -143,7 +146,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
         /**
-         * botón para añadir resta como operación
+         * botón para añadir resta como operación, si operador ya tiene un valor asignado realizará primero la operación designada
+         * y luego cambiará el valor de la variable operador. Si no hay un operador asignado primero se comprueba si ya hay num1 añadido,
+         * en caso negativo añade num1, en caso positivo realiza la operación y traslada el valor de la misma a num1.
+         * Al final de cada operación reseteamos el valor de num2 y de operador.
          */
         val buttonMinus = findViewById<Button>(R.id.minus)
         buttonMinus.setOnClickListener(View.OnClickListener {
@@ -176,7 +182,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
         /**
-         * botón para añadir multiplicación como operación
+         * botón para añadir multiplicación como operación, si operador ya tiene un valor asignado realizará primero la operación designada
+         * y luego cambiará el valor de la variable operador. Si no hay un operador asignado primero se comprueba si ya hay num1 añadido,
+         * en caso negativo añade num1, en caso positivo realiza la operación y traslada el valor de la misma a num1.
+         * Al final de cada operación reseteamos el valor de num2 y de operador.
          */
         val buttonMult = findViewById<Button>(R.id.multiply)
         buttonMult.setOnClickListener(View.OnClickListener {
@@ -210,7 +219,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
         /**
-         * botón para añadir división como operación
+         * botón para añadir división como operación, si operador ya tiene un valor asignado realizará primero la operación designada
+         * y luego cambiará el valor de la variable operador. Si no hay un operador asignado primero se comprueba si ya hay num1 añadido,
+         * en caso negativo añade num1, en caso positivo realiza la operación y traslada el valor de la misma a num1.
+         * Al final de cada operación reseteamos el valor de num2 y de operador.
          */
         val buttonDiv = findViewById<Button>(R.id.divide)
         buttonDiv.setOnClickListener(View.OnClickListener {
@@ -243,7 +255,7 @@ class MainActivity : AppCompatActivity() {
                 operador="/"
             }
         })/**
-         * botón para borrar todo
+         * botón para resetear los valores a su valor inicial
          */
         val buttonCe = findViewById<Button>(R.id.ce)
         buttonCe.setOnClickListener(View.OnClickListener {
@@ -253,7 +265,8 @@ class MainActivity : AppCompatActivity() {
             textView.text = result
         })
         /**
-         * botón para obtener el resultado
+         * botón para obtener el resultado, se crea el objeto cálculo con los valores num1, num2 y operación y se llama al método operación del mismo.
+         * @see Calculo
          */
         val buttonEqual = findViewById<Button>(R.id.equal)
         buttonEqual.setOnClickListener(View.OnClickListener {
