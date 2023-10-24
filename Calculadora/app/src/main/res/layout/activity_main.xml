@@ -255,27 +255,38 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
         android:padding="5dp">
 
-    <Button
-        android:id="@+id/ce"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/material_dynamic_primary10"
-        android:padding="20dp"
-        android:text="@string/ce"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="640dp" />
+        <Button
+            android:id="@+id/del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/material_dynamic_primary10"
+            android:padding="20dp"
+            android:text="@string/del"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="206dp"
+            tools:layout_editor_absoluteY="640dp" />
 
-    <Button
-        android:id="@+id/equal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/material_dynamic_primary10"
-        android:padding="20dp"
-        android:text="@string/equal"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="640dp" />
+        <Button
+            android:id="@+id/ce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/material_dynamic_primary10"
+            android:padding="20dp"
+            android:text="@string/ce"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="206dp"
+            tools:layout_editor_absoluteY="640dp" />
+
+        <Button
+            android:id="@+id/equal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/material_dynamic_primary10"
+            android:padding="20dp"
+            android:text="@string/equal"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="118dp"
+            tools:layout_editor_absoluteY="640dp" />
 
     </LinearLayout>
 
