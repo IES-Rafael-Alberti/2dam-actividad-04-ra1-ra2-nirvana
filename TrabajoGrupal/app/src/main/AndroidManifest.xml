@@ -13,6 +13,15 @@
         android:theme="@style/Theme.TrabajoGrupal"
         tools:targetApi="31">
         <activity
+            android:name=".CarlosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CurroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Imc"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
