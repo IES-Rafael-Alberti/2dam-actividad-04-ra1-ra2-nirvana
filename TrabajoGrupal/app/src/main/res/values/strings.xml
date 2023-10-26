@@ -43,4 +43,10 @@
     <string name="edad">EDAD</string>
     <string name="pesoBase">60</string>
     <string name="edadBase">30</string>
+    <string name="TitleMainMenu">MENU PRINCIPAL</string>
+    <string name="BtnCalcAdri">CALCULADORA ADRIAN</string>
+    <string name="BtnCalcCarlos">CALCULADORA CARLOS</string>
+    <string name="BtnCalcCurro">CALCULADORA CURRO</string>
+    <string name="BtnCalcIMC">CALCULADORA IMC</string>
+    <string name="BtnExit">SALIR</string>
 </resources>

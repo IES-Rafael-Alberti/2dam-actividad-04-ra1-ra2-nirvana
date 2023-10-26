@@ -22,7 +22,7 @@ class CarlosActivity : AppCompatActivity() {
     private lateinit var volver:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_carlos)
 
         initVariables()
         initListeners()
@@ -260,6 +260,6 @@ class CarlosActivity : AppCompatActivity() {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
     private fun listenerVolver(){
-
+        finish()
     }
 }

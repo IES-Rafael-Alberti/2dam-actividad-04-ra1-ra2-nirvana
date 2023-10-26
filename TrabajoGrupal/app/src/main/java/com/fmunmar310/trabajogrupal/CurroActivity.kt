@@ -2,6 +2,7 @@ package com.fmunmar310.trabajogrupal
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -17,6 +18,7 @@ class CurroActivity : AppCompatActivity() {
         var result = ""
         var operador: String
         val calculoCurro = CalculoCurro()
+
         val buttonSalir = findViewById<Button>(R.id.exit)
         buttonSalir.setOnClickListener {
             finish()
