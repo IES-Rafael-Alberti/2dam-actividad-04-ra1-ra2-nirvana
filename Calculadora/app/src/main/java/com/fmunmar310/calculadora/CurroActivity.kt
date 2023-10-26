@@ -10,7 +10,7 @@ import android.widget.Toast
 /**
  * Main activity de nuestra calculadora
  */
-class MainActivity : AppCompatActivity() {
+class CurroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,10 +28,14 @@ class MainActivity : AppCompatActivity() {
 
         /**
          * @param calculo variable que usaremos para crear nuestro cálculo
-         * @see Calculo para más información
+         * @see CalculoCurro para más información
          */
-        var calculo = Calculo()
+        var calculoCurro = CalculoCurro()
 
+        val buttonSalir = findViewById<Button>(R.id.exit)
+        buttonSalir.setOnClickListener(View.OnClickListener {
+            finish()
+        })
         //botón del número 1, añade a la variable text el valor correspondiente
         val button1 = findViewById<Button>(R.id.num1)
         button1.setOnClickListener(View.OnClickListener {
@@ -117,9 +121,9 @@ class MainActivity : AppCompatActivity() {
                 lanzarMensajeToast()
             }else {
                 operador = "+"
-                pulsaBoton(result, operador, calculo) // llamada a la función pulsaBoton
+                pulsaBoton(result, operador, calculoCurro) // llamada a la función pulsaBoton
                 // realizamos el cálculo y lo mostramos con un formato determinado añadiendo el operador a la variable result
-                result = formatear(calculo.operacion()) + operador
+                result = formatear(calculoCurro.operacion()) + operador
                 textView.text = result
             }
 
@@ -133,9 +137,9 @@ class MainActivity : AppCompatActivity() {
                 lanzarMensajeToast()
             }else {
                 operador = "-"
-                pulsaBoton(result, operador, calculo) // llamada a la función pulsaBoton
+                pulsaBoton(result, operador, calculoCurro) // llamada a la función pulsaBoton
                 // realizamos el cálculo y lo mostramos con un formato determinado añadiendo el operador a la variable result
-                result = formatear(calculo.operacion()) + operador
+                result = formatear(calculoCurro.operacion()) + operador
                 textView.text = result
             }
 
@@ -149,9 +153,9 @@ class MainActivity : AppCompatActivity() {
                 lanzarMensajeToast()
             }else {
                 operador = "*"
-                pulsaBoton(result, operador, calculo) // llamada a la función pulsaBoton
+                pulsaBoton(result, operador, calculoCurro) // llamada a la función pulsaBoton
                 // realizamos el cálculo y lo mostramos con un formato determinado añadiendo el operador a la variable result
-                result = formatear(calculo.operacion()) + operador
+                result = formatear(calculoCurro.operacion()) + operador
                 textView.text = result
             }
 
@@ -164,9 +168,9 @@ class MainActivity : AppCompatActivity() {
                 lanzarMensajeToast()
             }else {
                 operador = "/"
-                pulsaBoton(result, operador, calculo) // llamada a la función pulsaBoton
+                pulsaBoton(result, operador, calculoCurro) // llamada a la función pulsaBoton
                 // realizamos el cálculo y lo mostramos con un formato determinado añadiendo el operador a la variable result
-                result = formatear(calculo.operacion()) + operador
+                result = formatear(calculoCurro.operacion()) + operador
                 textView.text = result
             }
         })
@@ -178,18 +182,18 @@ class MainActivity : AppCompatActivity() {
                 errorBorrar()
             }else {
                 var tempBorr = "" // variable que se usa para pasar de Double a text los atributos de la calse calculo
-                if(calculo.numUno){ // comprueba si se está añadiendo el primer número
-                    tempBorr = calculo.num1.toString() // se asigna el valor de num1 a tempBorr
+                if(calculoCurro.numUno){ // comprueba si se está añadiendo el primer número
+                    tempBorr = calculoCurro.num1.toString() // se asigna el valor de num1 a tempBorr
                     tempBorr = tempBorr.substring(0,tempBorr.length-1) // se elimina el último caracter añadido
-                    calculo.num1 = tempBorr.toDouble() // se reasigna el valor a num1
+                    calculoCurro.num1 = tempBorr.toDouble() // se reasigna el valor a num1
                 }else { // si ya ha sido añadido el primer número se realiza la misma operación con num2
-                    tempBorr = calculo.num2.toString()
+                    tempBorr = calculoCurro.num2.toString()
                     tempBorr = tempBorr.substring(0, tempBorr.length - 1)
-                    calculo.num2 = tempBorr.toDouble()
+                    calculoCurro.num2 = tempBorr.toDouble()
                     }
                 result = result.substring(0, result.length - 1) // se elimina el valor de result
                 textView.text = result
-                if(tempBorr.isEmpty()){calculo.numUno = true}
+                if(tempBorr.isEmpty()){calculoCurro.numUno = true}
             //si tempBorr está vacío se indica que numUno es true
             }
         })
@@ -198,7 +202,7 @@ class MainActivity : AppCompatActivity() {
         val buttonCe = findViewById<Button>(R.id.ce)
         buttonCe.setOnClickListener(View.OnClickListener {
             result = ""
-            calculo.resetear()
+            calculoCurro.resetear()
             textView.text = result
         })
 
@@ -210,41 +214,46 @@ class MainActivity : AppCompatActivity() {
                 lanzarMensajeToast()
             }else {
                 operador = "="
-                pulsaBoton(result, operador, calculo) // llamada a la función pulsaBoton
+                pulsaBoton(result, operador, calculoCurro) // llamada a la función pulsaBoton
                 // realizamos el cálculo y lo mostramos con un formato determinado añadiendo el operador a la variable result
-                result = formatear(calculo.operacion())
+                result = formatear(calculoCurro.operacion())
                 textView.text = result
-                calculo.numUno = true
+                calculoCurro.numUno = true
             }
         })
     }
 
+    /**
+     * @return devuelve un num Double con dos decimales
+     */
     fun formatear(num: Double): String {
         return String.format("%.2f", num)
     }
 
-
-    fun pulsaBoton(cadena: String, oper: String, calculo: Calculo) {
+    /**
+     * Función a la que llamamos cuando se pulsan los botones de operación o resultado
+     */
+    fun pulsaBoton(cadena: String, oper: String, calculoCurro: CalculoCurro) {
             var lista = listOf<String>()
             if (oper == "=") {
                 for (i in cadena) {
                     if (i == '+' || i == '-' || i == '*' || i == '/') {
                         lista = cadena.split(i)
-                        calculo.num1 = lista[0].toDouble()
-                        calculo.num2 = lista[1].toDouble()
-                        calculo.op = "$i"
+                        calculoCurro.num1 = lista[0].toDouble()
+                        calculoCurro.num2 = lista[1].toDouble()
+                        calculoCurro.op = "$i"
                     }
                 }
             } else {
-                if (calculo.numUno) {
-                    calculo.num1 = cadena.toDouble()
+                if (calculoCurro.numUno) {
+                    calculoCurro.num1 = cadena.toDouble()
                 } else {
                     for (i in cadena) {
                         if (i == '+' || i == '-' || i == '*' || i == '/') {
                             lista = cadena.split(i)
-                            calculo.num1 = lista[0].toDouble()
-                            calculo.num2 = lista[1].toDouble()
-                            calculo.op = "$i"
+                            calculoCurro.num1 = lista[0].toDouble()
+                            calculoCurro.num2 = lista[1].toDouble()
+                            calculoCurro.op = "$i"
                         }
                     }
                 }
@@ -256,12 +265,20 @@ class MainActivity : AppCompatActivity() {
         }
         return false
     }
+
+    /**
+     * Lanza mensaje de error, esta función se llama cuando no se han rellenado los datos correctamente
+     * y se pulsa algún botón de operación
+     */
     fun lanzarMensajeToast() {
         Toast.makeText(this, "Error, faltan datos o son erróneos", Toast.LENGTH_SHORT).show()
     }
+
+    /**
+     * Se llama cuando se intenta borrar y ya no queda nada para borrar
+     */
     fun errorBorrar(){
         Toast.makeText(this, "No se puede borrar", Toast.LENGTH_SHORT).show()
-
     }
 }
 

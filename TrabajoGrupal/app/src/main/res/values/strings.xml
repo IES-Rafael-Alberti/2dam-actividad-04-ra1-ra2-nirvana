@@ -15,9 +15,9 @@
     <string name="multiply">*</string>
     <string name="dot">.</string>
     <string name="del"><![CDATA[<-]]></string>
-    <string name="hombre">Hombre</string>
-    <string name="mujer">Mujer</string>
-    <string name="altura">Altura</string>
+    <string name="hombre">HOMBRE</string>
+    <string name="mujer">MUJER</string>
+    <string name="altura">ALTURA</string>
     <string name="menos">-</string>
     <string name="mas">+</string>
     <string name="seven">7</string>
@@ -39,4 +39,8 @@
     <string name="delete"><![CDATA[<]]></string>
     <string name="point">.</string>
     <string name="back">x</string>
+    <string name="peso">PESO</string>
+    <string name="edad">EDAD</string>
+    <string name="pesoBase">60</string>
+    <string name="edadBase">30</string>
 </resources>

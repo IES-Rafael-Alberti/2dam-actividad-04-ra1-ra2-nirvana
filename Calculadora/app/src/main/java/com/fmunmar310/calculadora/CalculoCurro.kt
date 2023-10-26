@@ -3,7 +3,7 @@ package com.fmunmar310.calculadora
 /**
  * Este es la clase cálculo que vamos a usar en la calculadora
  */
-class Calculo (){ // constructor principal que permite crear la clase sin valores
+class CalculoCurro (){ // constructor principal que permite crear la clase sin valores
     var num1: Double
     var num2:Double
     var op:String
