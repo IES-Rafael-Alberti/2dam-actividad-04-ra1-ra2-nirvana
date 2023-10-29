@@ -23,6 +23,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CarlosActivity::class.java)
             startActivity(intent)
         }
+        //boton para iniciar Calculadora Adri
+        val buttonAdri = findViewById<Button>(R.id.btnCalcAdri)
+        buttonAdri.setOnClickListener{
+            val intent = Intent(this, CalculadoraAdri::class.java)
+            startActivity(intent)
+        }
         //boton para iniciar Calculo Imc
         val buttonImc = findViewById<Button>(R.id.btnCalcIMC)
         buttonImc.setOnClickListener{
@@ -32,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         //boton para salir
         val buttonExit = findViewById<Button>(R.id.btnExit)
         buttonExit.setOnClickListener{
-            finish()
+            finishAndRemoveTask()
         }
     }
 }

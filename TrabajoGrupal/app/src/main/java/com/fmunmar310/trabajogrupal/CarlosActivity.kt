@@ -260,6 +260,5 @@ class CarlosActivity : AppCompatActivity() {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
     private fun listenerVolver(){
-        finish()
-    }
+        finishAndRemoveTask()    }
 }

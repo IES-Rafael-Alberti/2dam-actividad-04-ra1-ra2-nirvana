@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="pulsado">#56638C</color>
+    <color name="sin_pulsar">#7c8fc8</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="buttonGreenColor">#00FF00</color>
+    <color name="buttonRedColor">#FF0000</color>
+    <color name="buttonYellowColor">#FFA500</color>
+    <color name="buttonBlueColor">#0040FF</color>
 </resources>

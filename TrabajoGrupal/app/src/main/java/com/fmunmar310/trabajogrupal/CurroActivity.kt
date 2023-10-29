@@ -2,7 +2,6 @@ package com.fmunmar310.trabajogrupal
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -21,7 +20,7 @@ class CurroActivity : AppCompatActivity() {
 
         val buttonSalir = findViewById<Button>(R.id.exit)
         buttonSalir.setOnClickListener {
-            finish()
+            finishAndRemoveTask()
         }
         //botón del número 1, añade a la variable text el valor correspondiente
         val button1 = findViewById<Button>(R.id.num1)
@@ -94,10 +93,18 @@ class CurroActivity : AppCompatActivity() {
             textView.text = result
         }
 
-        // botón para añadir punto, añade a la variable text el valor correspondiente
+        /* botón para añadir punto, añade a la variable text el valor correspondiente,
+         al pulsar "." añadimos un cero delante si no hay nada introducido,  no es estrictamente
+         necesario porque en la conversión a double se añade solo, pero de esta manera aparecerá
+         en el textView y quedará mejor.
+         */
         val buttonDot = findViewById<Button>(R.id.dot)
         buttonDot.setOnClickListener{
-            result += "."
+            result += if (result.isEmpty() || result.last() in arrayOf('+','-','/','*')){
+                "0."
+            } else{
+                "."
+            }
             textView.text = result
         }
 
@@ -219,7 +226,7 @@ class CurroActivity : AppCompatActivity() {
         var lista: List<String>
         if (oper == "=") {
             for (i in cadena) {
-                if (i == '+' || i == '-' || i == '*' || i == '/') {
+                if (i in arrayOf('+','-','/','*')) {
                     lista = cadena.split(i)
                     calculoCurro.num1 = lista[0].toDouble()
                     calculoCurro.num2 = lista[1].toDouble()
@@ -231,7 +238,7 @@ class CurroActivity : AppCompatActivity() {
                 calculoCurro.num1 = cadena.toDouble()
             } else {
                 for (i in cadena) {
-                    if (i == '+' || i == '-' || i == '*' || i == '/') {
+                    if (i in arrayOf('+','-','/','*')) {
                         lista = cadena.split(i)
                         calculoCurro.num1 = lista[0].toDouble()
                         calculoCurro.num2 = lista[1].toDouble()

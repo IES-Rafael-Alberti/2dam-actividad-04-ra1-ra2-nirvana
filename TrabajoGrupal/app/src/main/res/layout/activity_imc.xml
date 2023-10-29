@@ -13,12 +13,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:cardBackgroundColor="@color/material_dynamic_primary60"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="25dp"
         >
         <LinearLayout
+            android:id="@+id/linearHombre"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="25dp">
+            android:gravity="center"
+            >
 
             <ImageView
                 android:id="@+id/man"
@@ -42,12 +47,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:cardBackgroundColor="@color/material_dynamic_primary60"
+        app:cardCornerRadius="25dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="25dp">
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/woman"
@@ -72,11 +78,13 @@
         app:layout_constraintTop_toBottomOf="@+id/hombre"
         tools:layout_editor_absoluteX="24dp"
         app:cardBackgroundColor="@color/material_dynamic_primary60"
+        app:cardCornerRadius="30dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/alt"
@@ -110,20 +118,22 @@
 
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/peso"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintTop_toBottomOf="@+id/altura"
         app:layout_constraintStart_toStartOf="parent"
         app:cardBackgroundColor="@color/material_dynamic_primary60"
+        app:cardCornerRadius="30dp"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="25dp">
+            android:gravity="center_horizontal"
+            android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/indicaPeso"
@@ -137,7 +147,7 @@
             <TextView
                 android:id="@+id/muestraPeso"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
+                android:layout_height="37dp"
                 android:text="@string/pesoBase"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -145,16 +155,20 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="50dp"
+                    android:id="@+id/menos_peso"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/menos"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/menos"
                     />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="50dp"
+                    android:id="@+id/mas_peso"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/mas"
                     android:layout_gravity="center"
@@ -170,15 +184,17 @@
         android:layout_height="150dp"
         app:layout_constraintTop_toBottomOf="@+id/altura"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="10dp"
         app:cardBackgroundColor="@color/material_dynamic_primary60"
+        app:cardCornerRadius="30dp"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="25dp">
+            android:gravity="center_horizontal"
+            android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/indicaEdad"
@@ -192,24 +208,30 @@
             <TextView
                 android:id="@+id/muestraEdad"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
+                android:layout_height="37dp"
                 android:text="@string/edadBase"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 />
             <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="60dp">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                >
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="50dp"
+                    android:id="@+id/menos_edad"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/menos"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/menos"
+
                     />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="50dp"
+                    android:id="@+id/mas_edad"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/mas"
                     android:layout_gravity="center"
@@ -218,16 +240,30 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
     <Button
+        android:id="@+id/calculoImc"
         android:backgroundTint="@color/material_dynamic_primary60"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/peso"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
-        android:textSize="60sp"
+        android:textSize="30sp"
+        android:text="@string/calcular"/>
+    <Button
+        android:id="@+id/salir"
+        android:backgroundTint="@color/material_dynamic_primary60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/calculoImc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
+        android:textSize="30sp"
         android:text="@string/salir"/>
 
 

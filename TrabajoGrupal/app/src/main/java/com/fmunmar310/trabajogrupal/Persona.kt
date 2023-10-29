@@ -1,10 +1,12 @@
 package com.fmunmar310.trabajogrupal
 
-class Persona {
+import java.io.Serializable
+
+class Persona : Serializable {
     var sexo = ""
-    var altura = 0
-    var peso = 0
-    var edad = 0
+    var altura = 120f
+    var peso = 60
+    var edad = 30
     var resultadoIMC = 0f
 
     fun incrementarPeso(){
@@ -20,9 +22,13 @@ class Persona {
         edad--
     }
     fun alturaEnCm():String{
-        return "${altura.toString()} CM"
+        return "${altura.toString().substring(0,3)} CM"
     }
     fun todosLosDatos():Boolean{
-        return (sexo=="" || altura == 0 || peso==0 || edad == 0)
+        return (sexo=="")
+    }
+    fun calculaImc(){
+        this.altura = this.altura/100
+        this.resultadoIMC= this.peso/ (this.altura*this.altura)
     }
 }

@@ -90,7 +90,7 @@ class CalculoCarlos {
      * corrige si es .0, si no tiene decimales no muestra decimales
      * @return num2 en formato String
      */
-    fun num2toString():String{
+    private fun num2toString():String{
         if (!num2Decimal){
             return numSinDecimal(num2)
         }
@@ -112,7 +112,7 @@ class CalculoCarlos {
      * detecta si termina en .0 el float
      * @return true si termina en .0 false si no
      */
-    fun esPuntoCero(num:Float):Boolean{
+    private fun esPuntoCero(num:Float):Boolean{
         return (num.toString()[num.toString().lastIndex] == '0' && num.toString()[num.toString().lastIndex-1] == '.')
     }
 
@@ -128,7 +128,7 @@ class CalculoCarlos {
      * @param num el numero en tipo float
      * @return num en tipo String sin decimales
      */
-    fun numSinDecimal(num: Float):String{
+    private fun numSinDecimal(num: Float):String{
         return num.toString().substring(0, num.toString().length-2)
     }
 
