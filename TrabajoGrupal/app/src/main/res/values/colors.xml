@@ -8,4 +8,7 @@
     <color name="buttonRedColor">#FF0000</color>
     <color name="buttonYellowColor">#FFA500</color>
     <color name="buttonBlueColor">#0040FF</color>
+    <color name="mi_color_primario">#000000</color>
+    <color name="mi_color_primario_oscuro">#333333</color>
+    <color name="mi_color_accent">#FF5722</color>
 </resources>

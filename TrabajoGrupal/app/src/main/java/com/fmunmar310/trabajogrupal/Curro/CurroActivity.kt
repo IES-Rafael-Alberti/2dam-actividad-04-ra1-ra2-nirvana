@@ -1,10 +1,11 @@
-package com.fmunmar310.trabajogrupal
+package com.fmunmar310.trabajogrupal.Curro
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.fmunmar310.trabajogrupal.R
 
 /**
  * Main activity de nuestra calculadora

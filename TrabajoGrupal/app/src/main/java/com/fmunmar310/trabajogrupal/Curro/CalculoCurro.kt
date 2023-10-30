@@ -1,4 +1,4 @@
-package com.fmunmar310.trabajogrupal
+package com.fmunmar310.trabajogrupal.Curro
 
 /**
  * Este es la clase cálculo que vamos a usar en la calculadora

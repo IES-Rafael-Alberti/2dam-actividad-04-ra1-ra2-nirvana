@@ -4,6 +4,13 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+    <style name="TemaCarlos" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <!-- Personaliza las propiedades del tema aquí -->
+        <!-- Por ejemplo, puedes cambiar el color de la barra de acción -->
+    </style>
+
 
     <style name="Theme.TrabajoGrupal" parent="Base.Theme.TrabajoGrupal" />
+
+
 </resources>
